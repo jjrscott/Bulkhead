@@ -15,6 +15,7 @@
 		068D83A123132528009DAC4A /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D83A023132527009DAC4A /* NSAttributedString.swift */; };
 		068D83A323132535009DAC4A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D83A223132535009DAC4A /* String.swift */; };
 		068D83A52313254D009DAC4A /* Array+Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D83A42313254D009DAC4A /* Array+Tuple.swift */; };
+		068D83B5231579CE009DAC4A /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D83B4231579CE009DAC4A /* Window.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		068D83A023132527009DAC4A /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		068D83A223132535009DAC4A /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		068D83A42313254D009DAC4A /* Array+Tuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Tuple.swift"; sourceTree = "<group>"; };
+		068D83B4231579CE009DAC4A /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				068D83A223132535009DAC4A /* String.swift */,
 				068D83A42313254D009DAC4A /* Array+Tuple.swift */,
 				068D83A023132527009DAC4A /* NSAttributedString.swift */,
+				068D83B4231579CE009DAC4A /* Window.swift */,
 				05605DAB2311C3E300EE9C60 /* Document.xib */,
 				05605DAE2311C3E400EE9C60 /* Assets.xcassets */,
 				05605DB02311C3E400EE9C60 /* MainMenu.xib */,
@@ -156,6 +159,7 @@
 				068D83A123132528009DAC4A /* NSAttributedString.swift in Sources */,
 				068D83A323132535009DAC4A /* String.swift in Sources */,
 				05605DA82311C3E300EE9C60 /* AppDelegate.swift in Sources */,
+				068D83B5231579CE009DAC4A /* Window.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

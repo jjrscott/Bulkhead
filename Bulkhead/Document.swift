@@ -46,6 +46,9 @@ class Document: NSDocument {
         }
         self.attributedString = attributedString
         
+        if let path = self.attributedString?.string.split(separator: "\n").first {
+            fileURL = URL(fileURLWithPath: String(path))
+        }
     }
     
     override func windowControllerDidLoadNib(_ windowController: NSWindowController) {
@@ -54,8 +57,9 @@ class Document: NSDocument {
         }
     }
     
-    
-
-
+//    override var displayName: String! {
+//        set { }
+//        get { return String(self.attributedString?.string.split(separator: "\n").first ?? "") }
+//    }
 }
 

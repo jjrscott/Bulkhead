@@ -14,6 +14,22 @@ use lib $FindBin::Bin.'/lib';
 use Sidekick::File qw(read_file write_file);
 use Sidekick::Colors qw(push_gray_color push_simple_color pop_color);
 
+# print join " <-> ", map {m!([^/]+)$!} @ARGV;
+
+print $ARGV[0];
+
+print "\n";
+print "\n";
+
+# foreach my $key (sort keys %ENV)
+# {
+#     printf qq(%s = %s\n), $key, $ENV{$key};
+# }
+# 
+# print "\n";
+
+
+
 my $wrappingColor = 251;
 
 my $startTime = time;

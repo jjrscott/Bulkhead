@@ -226,7 +226,7 @@ sub parseDictionary
 	
 	while (my $key = parseString(\$content, $depth+1))
 	{
-		testConstant(\$content, $depth+1, "=") || die;
+		testConstant(\$content, $depth+1, "=") || die Dumper($depth, \%dictionary, substr $content, 0, 200);
 		my $value = parseValue(\$content, $depth+1, $key);
 		die Dumper($key, $value, $depth, \%dictionary, substr $content, 0, 200) if !defined $value;
 		testConstant(\$content, $depth+1, ";");
@@ -264,7 +264,7 @@ sub parseString
 	{
 		$value = $1;
 	}
-	elsif ($content =~ s/^([_a-zA-Z0-9\.\/]+)//)
+	elsif ($content =~ s/^([-_a-zA-Z0-9\.\/]+)//)
 	{
 		$value = $1;
 	}
@@ -621,7 +621,13 @@ sub pretty_print
 		else
 		{
 			$content .= "<";
-			$content .= join " ", @$node;
+			my $count = 0;
+			foreach my $byte (@$node)
+			{
+			    $content .= " " if $count && $count % 4 == 0;
+			    $content .= $byte;
+			    $count++;
+			}
 			$content .= ">";
 		}
 	}
