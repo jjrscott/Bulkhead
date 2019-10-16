@@ -8,8 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (LCS)
+typedef NS_ENUM(NSUInteger, Diff) {
+    DiffEqual,
+    DiffAddition,
+    DiffDeletion,
+};
 
--(NSArray*)longestCommonSubsequence:(NSArray*)anArray;
+NSString *NSStringFromDiff(Diff action);
+
+@interface ElementAction<Element> : NSObject;
+
+@property (nonatomic, assign, readonly) Diff action;
+@property (nonatomic, strong, readonly) Element element;
+
+@end
+
+@interface NSArray<Element> (LCS)
+
+-(NSArray<ElementAction<Element>*>*)longestCommonSubsequence:(NSArray*)anArray;
 
 @end
