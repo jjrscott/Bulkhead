@@ -677,7 +677,30 @@ sub unwrap
     else
     {
         my %attributes = map {$_->nodeName, $_->value} grep {defined} $node->attributes;
-        return [$node->nodeName, (%attributes?\%attributes:()), map {unwrap($_)} $node->childNodes];
+#         if ($node->nodeName eq 'TestAction')
+
+        my @childNodes = map {unwrap($_)} $node->childNodes;
+        
+        if ($node->nodeName =~ m/Action$/)
+        {
+            foreach my $childNode (@childNodes)
+            {
+                foreach my $childNodeName (keys %{$childNode})
+                {
+                    $attributes{'#'.$childNodeName} = $childNode->{$childNodeName};
+            
+                }            
+            }
+            @childNodes = ();
+        }
+        
+        if (@childNodes && %attributes)
+        {
+            $attributes{"#children"} = \@childNodes;
+        }
+    
+        
+        return {$node->nodeName => %attributes?\%attributes:\@childNodes};
     }
 }
 
