@@ -5,6 +5,18 @@ This project contains a collection of type specific diff scripts. I currently co
 - A bunch of diff scripts
 - A Mac app to view the output
 
+## Supported formats
+
+| Description                           | Extension            | Type                                                |
+| ------------------------------------- | -------------------- | --------------------------------------------------- |
+| Interface Builder Storyboard Document | `storyboard`         | `com.apple.dt.interfacebuilder.document.storyboard` |
+| JSON Document                         | `json`               | `public.json`                                       |
+| Plain Text Document                   | `txt`, …             | `public.plain-text`                                 |
+| Property List                         | `plist`              | `com.apple.property-list`                           |
+| Xcode Project Data                    | `pbxproj`, `pbxuser` | `com.apple.xcode.projectdata`                       |
+| Xcode Scheme                          | `xcscheme`           | `com.apple.dt.document.scheme`                      |
+| XML Document                          | `xhtml`, `xml`       | `public.xml`                                        |
+
 ## Diff Scripts
 
 `DiffTools/diff.pl` and `DiffTools/diff-ui.pl` act as entry points to the selection and execution the type specific diff scripts which will compare that given type as they see fit.
