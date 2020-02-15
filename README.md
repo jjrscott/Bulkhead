@@ -7,15 +7,16 @@ This project contains a collection of type specific diff scripts. I currently co
 
 ## Supported formats
 
-| Description                           | Extension            | Type                                                |
-| ------------------------------------- | -------------------- | --------------------------------------------------- |
-| Interface Builder Storyboard Document | `storyboard`         | `com.apple.dt.interfacebuilder.document.storyboard` |
-| JSON Document                         | `json`               | `public.json`                                       |
-| Plain Text Document                   | `txt`, …             | `public.plain-text`                                 |
-| Property List                         | `plist`              | `com.apple.property-list`                           |
-| Xcode Project Data                    | `pbxproj`, `pbxuser` | `com.apple.xcode.projectdata`                       |
-| Xcode Scheme                          | `xcscheme`           | `com.apple.dt.document.scheme`                      |
-| XML Document                          | `xhtml`, `xml`       | `public.xml`                                        |
+| Description                           | Extension            | Type                                                | Notes                                                      |
+| ------------------------------------- | -------------------- | --------------------------------------------------- | ---------------------------------------------------------- |
+| Interface Builder Storyboard Document | `storyboard`         | `com.apple.dt.interfacebuilder.document.storyboard` |                                                            |
+| JSON Document                         | `json`               | `public.json`                                       |                                                            |
+| Office Open XML spreadsheet           | `xlsx`               | `org.openxmlformats.spreadsheetml.sheet`            | Requires [`xlsx2csv`](https://github.com/dilshod/xlsx2csv) |
+| Plain Text Document                   | `txt`, …             | `public.plain-text`                                 |                                                            |
+| Property List                         | `plist`              | `com.apple.property-list`                           |                                                            |
+| Xcode Project Data                    | `pbxproj`, `pbxuser` | `com.apple.xcode.projectdata`                       |                                                            |
+| Xcode Scheme                          | `xcscheme`           | `com.apple.dt.document.scheme`                      |                                                            |
+| XML Document                          | `xhtml`, `xml`       | `public.xml`                                        |                                                            |
 
 ## Diff Scripts
 
@@ -27,7 +28,7 @@ For example, comparing an Encel `xls` file will result in the `org.openxmlformat
 
 ### Git config for UI
 
-```
+```ini
 [difftool "Bulkhead"]
 	cmd = ???/Bulkhead/DiffTools/diff-ui.sh \"$LOCAL\" \"$REMOTE\"
 	path = 
