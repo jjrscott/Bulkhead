@@ -54,8 +54,8 @@ NSString *NSStringFromDiff(Diff action) {
     NSMutableArray *s = [NSMutableArray new];
 
     for (i = n, j = m; i > 0 && j > 0;) {
-        NSLog(@"%ld - %ld", (long)i, (long)j);
-        if (a[i - 1] == b[j - 1]) {
+//        NSLog(@"%ld - %ld", (long)i, (long)j);
+        if ([a[i - 1] isEqual:b[j - 1]]) {
             [s addObject:[[ElementAction alloc] initWithAction:DiffEqual element:a[i - 1]]];
             i--;
             j--;
@@ -72,13 +72,13 @@ NSString *NSStringFromDiff(Diff action) {
         }
     }
     while (i > 0) {
-        NSLog(@"%ld -  ", (long)i);
+//        NSLog(@"%ld -  ", (long)i);
         [s addObject:[[ElementAction alloc] initWithAction:DiffAddition element:a[i - 1]]];
         i--;
     }
     
     while (j > 0) {
-        NSLog(@"  - %ld", (long)j);
+//        NSLog(@"  - %ld", (long)j);
         [s addObject:[[ElementAction alloc] initWithAction:DiffDeletion element:b[j - 1]]];
         j--;
     }

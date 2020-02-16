@@ -30,6 +30,6 @@ For example, comparing an Encel `xls` file will result in the `org.openxmlformat
 
 ```ini
 [difftool "Bulkhead"]
-	cmd = ???/Bulkhead/DiffTools/diff-ui.sh \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = ???/Bulkhead/DiffTools/diff-ui.sh \"$LOCAL\" \"$REMOTE\"
+  path = 
 ```

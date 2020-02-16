@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05605DA82311C3E300EE9C60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05605DA72311C3E300EE9C60 /* AppDelegate.swift */; };
 		05605DAA2311C3E300EE9C60 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05605DA92311C3E300EE9C60 /* Document.swift */; };
 		05605DAD2311C3E300EE9C60 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05605DAB2311C3E300EE9C60 /* Document.xib */; };
 		05605DAF2311C3E400EE9C60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05605DAE2311C3E400EE9C60 /* Assets.xcassets */; };
@@ -15,16 +14,53 @@
 		063DDE0C234C9943009F6652 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DDE0B234C9943009F6652 /* main.m */; };
 		063DDE15234C9A07009F6652 /* NSArray+LongestCommonSubsequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DDE14234C9A07009F6652 /* NSArray+LongestCommonSubsequence.m */; };
 		063DDE18234CA569009F6652 /* NSString+ComposedCharacterSequences.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DDE17234CA569009F6652 /* NSString+ComposedCharacterSequences.m */; };
-		063DDE1E234CCEC1009F6652 /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DDE1D234CCEC1009F6652 /* Application.m */; };
-		063DDE23234CE7F7009F6652 /* AppleEventManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DDE22234CE7F7009F6652 /* AppleEventManager.m */; };
+		063F67F423F963A100D917FA /* Shell in CopyFiles */ = {isa = PBXBuildFile; fileRef = 06A86B2223ED6DDF00131539 /* Shell */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		063F67F723F9689D00D917FA /* Coordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = 063F67F623F9689D00D917FA /* Coordinator.m */; };
+		063F67F923F969AF00D917FA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 063F67F823F969AF00D917FA /* main.m */; };
+		063F67FD23F972EB00D917FA /* DiffTools in Resources */ = {isa = PBXBuildFile; fileRef = 063F67FC23F972EB00D917FA /* DiffTools */; };
+		0647608E23F85B790051871C /* NSString+ComposedCharacterSequences.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DDE17234CA569009F6652 /* NSString+ComposedCharacterSequences.m */; };
+		0647608F23F85B790051871C /* NSArray+LongestCommonSubsequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DDE14234C9A07009F6652 /* NSArray+LongestCommonSubsequence.m */; };
+		0647609223F85D5A0051871C /* NSFileManager+DirectoryContents.m in Sources */ = {isa = PBXBuildFile; fileRef = 0647609123F85D5A0051871C /* NSFileManager+DirectoryContents.m */; };
+		0647609523F876F40051871C /* NSTask+Execution.m in Sources */ = {isa = PBXBuildFile; fileRef = 0647609423F876F40051871C /* NSTask+Execution.m */; };
 		068D83A123132528009DAC4A /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D83A023132527009DAC4A /* NSAttributedString.swift */; };
 		068D83A323132535009DAC4A /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D83A223132535009DAC4A /* String.swift */; };
 		068D83A52313254D009DAC4A /* Array+Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D83A42313254D009DAC4A /* Array+Tuple.swift */; };
 		068D83B5231579CE009DAC4A /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 068D83B4231579CE009DAC4A /* Window.swift */; };
+		06A86B2523ED6DDF00131539 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A86B2423ED6DDF00131539 /* main.m */; };
+		06A86B2B23ED6FDB00131539 /* UTType+ObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A86B2A23ED6FDB00131539 /* UTType+ObjC.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		063F67F123F9636600D917FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05605D9C2311C3E300EE9C60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06A86B2123ED6DDF00131539;
+			remoteInfo = Shell;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		063DDE07234C9943009F6652 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		063F67F323F9639900D917FA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				063F67F423F963A100D917FA /* Shell in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06A86B2023ED6DDF00131539 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -37,7 +73,6 @@
 
 /* Begin PBXFileReference section */
 		05605DA42311C3E300EE9C60 /* Bulkhead.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bulkhead.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		05605DA72311C3E300EE9C60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05605DA92311C3E300EE9C60 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		05605DAC2311C3E300EE9C60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
 		05605DAE2311C3E400EE9C60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,15 +85,23 @@
 		063DDE14234C9A07009F6652 /* NSArray+LongestCommonSubsequence.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LongestCommonSubsequence.m"; sourceTree = "<group>"; };
 		063DDE16234CA569009F6652 /* NSString+ComposedCharacterSequences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+ComposedCharacterSequences.h"; sourceTree = "<group>"; };
 		063DDE17234CA569009F6652 /* NSString+ComposedCharacterSequences.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+ComposedCharacterSequences.m"; sourceTree = "<group>"; };
-		063DDE1C234CCEC1009F6652 /* Application.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
-		063DDE1D234CCEC1009F6652 /* Application.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
-		063DDE21234CE7F7009F6652 /* AppleEventManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppleEventManager.h; sourceTree = "<group>"; };
-		063DDE22234CE7F7009F6652 /* AppleEventManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleEventManager.m; sourceTree = "<group>"; };
 		063DDE24234CF90A009F6652 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		063F67F523F9689D00D917FA /* Coordinator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Coordinator.h; sourceTree = "<group>"; };
+		063F67F623F9689D00D917FA /* Coordinator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Coordinator.m; sourceTree = "<group>"; };
+		063F67F823F969AF00D917FA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		063F67FC23F972EB00D917FA /* DiffTools */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DiffTools; sourceTree = SOURCE_ROOT; };
+		0647609023F85D5A0051871C /* NSFileManager+DirectoryContents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryContents.h"; sourceTree = "<group>"; };
+		0647609123F85D5A0051871C /* NSFileManager+DirectoryContents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryContents.m"; sourceTree = "<group>"; };
+		0647609323F876F40051871C /* NSTask+Execution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTask+Execution.h"; sourceTree = "<group>"; };
+		0647609423F876F40051871C /* NSTask+Execution.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTask+Execution.m"; sourceTree = "<group>"; };
 		068D83A023132527009DAC4A /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		068D83A223132535009DAC4A /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		068D83A42313254D009DAC4A /* Array+Tuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Tuple.swift"; sourceTree = "<group>"; };
 		068D83B4231579CE009DAC4A /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		06A86B2223ED6DDF00131539 /* Shell */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Shell; sourceTree = BUILT_PRODUCTS_DIR; };
+		06A86B2423ED6DDF00131539 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		06A86B2923ED6FDB00131539 /* UTType+ObjC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTType+ObjC.h"; sourceTree = "<group>"; };
+		06A86B2A23ED6FDB00131539 /* UTType+ObjC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UTType+ObjC.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +119,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		06A86B1F23ED6DDF00131539 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -84,6 +134,7 @@
 			children = (
 				05605DA62311C3E300EE9C60 /* Bulkhead */,
 				063DDE0A234C9943009F6652 /* LCSTest */,
+				06A86B2323ED6DDF00131539 /* Shell */,
 				05605DA52311C3E300EE9C60 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +144,7 @@
 			children = (
 				05605DA42311C3E300EE9C60 /* Bulkhead.app */,
 				063DDE09234C9943009F6652 /* LCSTest */,
+				06A86B2223ED6DDF00131539 /* Shell */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,12 +152,9 @@
 		05605DA62311C3E300EE9C60 /* Bulkhead */ = {
 			isa = PBXGroup;
 			children = (
-				05605DA72311C3E300EE9C60 /* AppDelegate.swift */,
+				063F67F523F9689D00D917FA /* Coordinator.h */,
+				063F67F623F9689D00D917FA /* Coordinator.m */,
 				05605DA92311C3E300EE9C60 /* Document.swift */,
-				063DDE1C234CCEC1009F6652 /* Application.h */,
-				063DDE1D234CCEC1009F6652 /* Application.m */,
-				063DDE21234CE7F7009F6652 /* AppleEventManager.h */,
-				063DDE22234CE7F7009F6652 /* AppleEventManager.m */,
 				068D83A223132535009DAC4A /* String.swift */,
 				068D83A42313254D009DAC4A /* Array+Tuple.swift */,
 				068D83A023132527009DAC4A /* NSAttributedString.swift */,
@@ -113,8 +162,10 @@
 				05605DAB2311C3E300EE9C60 /* Document.xib */,
 				05605DAE2311C3E400EE9C60 /* Assets.xcassets */,
 				05605DB02311C3E400EE9C60 /* MainMenu.xib */,
+				063F67F823F969AF00D917FA /* main.m */,
 				05605DB32311C3E400EE9C60 /* Info.plist */,
 				05605DB42311C3E400EE9C60 /* Bulkhead.entitlements */,
+				063F67FC23F972EB00D917FA /* DiffTools */,
 			);
 			path = Bulkhead;
 			sourceTree = "<group>";
@@ -132,6 +183,20 @@
 			path = LCSTest;
 			sourceTree = "<group>";
 		};
+		06A86B2323ED6DDF00131539 /* Shell */ = {
+			isa = PBXGroup;
+			children = (
+				06A86B2423ED6DDF00131539 /* main.m */,
+				0647609323F876F40051871C /* NSTask+Execution.h */,
+				0647609423F876F40051871C /* NSTask+Execution.m */,
+				0647609023F85D5A0051871C /* NSFileManager+DirectoryContents.h */,
+				0647609123F85D5A0051871C /* NSFileManager+DirectoryContents.m */,
+				06A86B2923ED6FDB00131539 /* UTType+ObjC.h */,
+				06A86B2A23ED6FDB00131539 /* UTType+ObjC.m */,
+			);
+			path = Shell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,10 +207,12 @@
 				05605DA02311C3E300EE9C60 /* Sources */,
 				05605DA12311C3E300EE9C60 /* Frameworks */,
 				05605DA22311C3E300EE9C60 /* Resources */,
+				063F67F323F9639900D917FA /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				063F67F223F9636600D917FA /* PBXTargetDependency */,
 			);
 			name = Bulkhead;
 			productName = Bulkhead;
@@ -167,6 +234,23 @@
 			name = LCSTest;
 			productName = LCSTest;
 			productReference = 063DDE09234C9943009F6652 /* LCSTest */;
+			productType = "com.apple.product-type.tool";
+		};
+		06A86B2123ED6DDF00131539 /* Shell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06A86B2823ED6DDF00131539 /* Build configuration list for PBXNativeTarget "Shell" */;
+			buildPhases = (
+				06A86B1E23ED6DDF00131539 /* Sources */,
+				06A86B1F23ED6DDF00131539 /* Frameworks */,
+				06A86B2023ED6DDF00131539 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shell;
+			productName = Shell;
+			productReference = 06A86B2223ED6DDF00131539 /* Shell */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -191,6 +275,9 @@
 					063DDE08234C9943009F6652 = {
 						CreatedOnToolsVersion = 10.3;
 					};
+					06A86B2123ED6DDF00131539 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
 			buildConfigurationList = 05605D9F2311C3E300EE9C60 /* Build configuration list for PBXProject "Bulkhead" */;
@@ -208,6 +295,7 @@
 			targets = (
 				05605DA32311C3E300EE9C60 /* Bulkhead */,
 				063DDE08234C9943009F6652 /* LCSTest */,
+				06A86B2123ED6DDF00131539 /* Shell */,
 			);
 		};
 /* End PBXProject section */
@@ -220,6 +308,7 @@
 				05605DAF2311C3E400EE9C60 /* Assets.xcassets in Resources */,
 				05605DAD2311C3E300EE9C60 /* Document.xib in Resources */,
 				05605DB22311C3E400EE9C60 /* MainMenu.xib in Resources */,
+				063F67FD23F972EB00D917FA /* DiffTools in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,11 +321,10 @@
 			files = (
 				05605DAA2311C3E300EE9C60 /* Document.swift in Sources */,
 				068D83A52313254D009DAC4A /* Array+Tuple.swift in Sources */,
-				063DDE1E234CCEC1009F6652 /* Application.m in Sources */,
+				063F67F723F9689D00D917FA /* Coordinator.m in Sources */,
 				068D83A123132528009DAC4A /* NSAttributedString.swift in Sources */,
 				068D83A323132535009DAC4A /* String.swift in Sources */,
-				063DDE23234CE7F7009F6652 /* AppleEventManager.m in Sources */,
-				05605DA82311C3E300EE9C60 /* AppDelegate.swift in Sources */,
+				063F67F923F969AF00D917FA /* main.m in Sources */,
 				068D83B5231579CE009DAC4A /* Window.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,7 +339,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		06A86B1E23ED6DDF00131539 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0647609523F876F40051871C /* NSTask+Execution.m in Sources */,
+				0647608F23F85B790051871C /* NSArray+LongestCommonSubsequence.m in Sources */,
+				06A86B2B23ED6FDB00131539 /* UTType+ObjC.m in Sources */,
+				0647609223F85D5A0051871C /* NSFileManager+DirectoryContents.m in Sources */,
+				06A86B2523ED6DDF00131539 /* main.m in Sources */,
+				0647608E23F85B790051871C /* NSString+ComposedCharacterSequences.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		063F67F223F9636600D917FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06A86B2123ED6DDF00131539 /* Shell */;
+			targetProxy = 063F67F123F9636600D917FA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		05605DAB2311C3E300EE9C60 /* Document.xib */ = {
@@ -455,6 +564,24 @@
 			};
 			name = Release;
 		};
+		06A86B2623ED6DDF00131539 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		06A86B2723ED6DDF00131539 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -481,6 +608,15 @@
 			buildConfigurations = (
 				063DDE0D234C9943009F6652 /* Debug */,
 				063DDE0E234C9943009F6652 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06A86B2823ED6DDF00131539 /* Build configuration list for PBXNativeTarget "Shell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06A86B2623ED6DDF00131539 /* Debug */,
+				06A86B2723ED6DDF00131539 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
