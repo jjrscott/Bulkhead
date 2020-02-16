@@ -8,27 +8,21 @@
 
 #import "NSArray+LongestCommonSubsequence.h"
 
-NSString *NSStringFromDiff(Diff action) {
-    switch (action) {
-        case DiffEqual: return @"equal";
-        case DiffAddition: return @"addition";
-        case DiffDeletion: return @"deletion";
-    }
-    return nil;
-}
+@interface Patch ()
 
-@interface ElementAction (Private)
-
-@property (nonatomic, assign, readwrite) Diff action;
-@property (nonatomic, strong, readwrite) id element;
-
--(instancetype)initWithAction:(Diff)action element:(id)element;
++(instancetype)patchWithLeft:(id)left right:(id)right;
 
 @end
 
 @implementation NSArray (LCS)
 
--(NSArray<ElementAction*>*)longestCommonSubsequence:(NSArray*)anArray {
+-(NSArray<Patch*>*)longestCommonSubsequence:(NSArray*)anArray {
+    return [self longestCommonSubsequence:anArray isEqual:^BOOL(id left, id right) {
+        return [left isEqual:right];
+    }];
+}
+
+-(NSArray<Patch*>*)longestCommonSubsequence:(NSArray*)anArray isEqual:(BOOL (^)(id left, id right))isEqual {
     NSArray *a = anArray;
     NSArray *b = self;
     NSInteger n = a.count;
@@ -41,7 +35,7 @@ NSString *NSStringFromDiff(Diff action) {
     }
     for (i = 1; i <= n; i++) {
         for (j = 1; j <= m; j++) {
-            if ([a[i - 1] isEqual:b[j - 1]]) {
+            if (isEqual(a[i - 1], b[j - 1])) {
                 c[i][j] = c[i - 1][j - 1] + 1;
             }
             else {
@@ -55,31 +49,31 @@ NSString *NSStringFromDiff(Diff action) {
 
     for (i = n, j = m; i > 0 && j > 0;) {
 //        NSLog(@"%ld - %ld", (long)i, (long)j);
-        if ([a[i - 1] isEqual:b[j - 1]]) {
-            [s addObject:[[ElementAction alloc] initWithAction:DiffEqual element:a[i - 1]]];
+        if (isEqual(a[i - 1], b[j - 1])) {
+            [s addObject:[Patch patchWithLeft:a[i - 1] right:b[j - 1]]];
             i--;
             j--;
         }
         else if (c[i][j - 1] <= c[i - 1][j])
         {
-            [s addObject:[[ElementAction alloc] initWithAction:DiffAddition element:a[i - 1]]];
+            [s addObject:[Patch patchWithLeft:a[i - 1] right:nil]];
             i--;
         }
         else
         {
-            [s addObject:[[ElementAction alloc] initWithAction:DiffDeletion element:b[j - 1]]];
+            [s addObject:[Patch patchWithLeft:nil right:b[j - 1]]];
             j--;
         }
     }
     while (i > 0) {
 //        NSLog(@"%ld -  ", (long)i);
-        [s addObject:[[ElementAction alloc] initWithAction:DiffAddition element:a[i - 1]]];
+        [s addObject:[Patch patchWithLeft:a[i - 1] right:nil]];
         i--;
     }
     
     while (j > 0) {
 //        NSLog(@"  - %ld", (long)j);
-        [s addObject:[[ElementAction alloc] initWithAction:DiffDeletion element:b[j - 1]]];
+        [s addObject:[Patch patchWithLeft:nil right:b[j - 1]]];
         j--;
     }
     
@@ -90,15 +84,20 @@ NSString *NSStringFromDiff(Diff action) {
 
 @end
 
-@implementation ElementAction
+@implementation Patch
 
-- (instancetype)initWithAction:(Diff)action element:(id)element {
+-(instancetype)initWithLeft:(id)left right:(id)right {
     self = [super init];
     if (self) {
-        _action = action;
-        _element = element;
+        NSAssert(left || right, @"");
+        _left = left;
+        _right = right;
     }
     return self;
+}
+
++(instancetype)patchWithLeft:(id)left right:(id)right {
+    return [[self alloc] initWithLeft:left right:right];
 }
 
 #if DEBUG
@@ -110,7 +109,7 @@ NSString *NSStringFromDiff(Diff action) {
 
 - (NSString *)descriptionWithLocale:(id)locale indent:(NSUInteger)level;
 {
-    return [NSString stringWithFormat:@"%@ {action = %@, element = %@}", super.description, NSStringFromDiff(_action), _element];
+    return [NSString stringWithFormat:@"%@ {left = %@, right = %@}", super.description, _left, _right];
 }
 
 @end

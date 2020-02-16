@@ -28,8 +28,10 @@ For example, comparing an Encel `xls` file will result in the `org.openxmlformat
 
 ### Git config for UI
 
-```ini
-[difftool "Bulkhead"]
-  cmd = ???/Bulkhead/DiffTools/diff-ui.sh \"$LOCAL\" \"$REMOTE\"
-  path = 
-```
+1. In the app click on Buildhead ▶ Install Command Line Tools…
+2. In `.gitconfig`, add the following statement:
+
+    ```ini
+    [difftool "Bulkhead"]
+      cmd = /usr/local/bin/bulkhead -local \"$LOCAL\" -remote \"$REMOTE\" -gui YES
+      path = 

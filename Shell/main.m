@@ -43,14 +43,17 @@ void Conforms(NSString *uti, NSMutableArray *parentUTIs) {
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        if (NSProcessInfo.processInfo.arguments.count < 3)
+        
+        NSString *localPath = [NSUserDefaults.standardUserDefaults stringForKey:@"local"];
+        NSString *remotePath = [NSUserDefaults.standardUserDefaults stringForKey:@"remote"];
+        
+        if (!localPath && !remotePath)
         {
-            Print(@"%@ <local-file> <remote-file>", NSProcessInfo.processInfo.arguments[0].lastPathComponent);
+            Print(@"%@ -local <local-file> -remote <remote-file> [-gui YES]", NSProcessInfo.processInfo.arguments[0].lastPathComponent);
             return 1;
         }
 
-        NSString *localPath = NSProcessInfo.processInfo.arguments[1];
-        NSString *remotePath = NSProcessInfo.processInfo.arguments[2];
+        BOOL shouldLaunchGUI = [NSUserDefaults.standardUserDefaults boolForKey:@"gui"];
         
         NSMutableArray *localPathUTIs = [NSMutableArray new];
         Conforms([UTType createPreferredIdentifierForTagInTagClass:UTTagClassFilenameExtension
@@ -65,7 +68,7 @@ int main(int argc, const char * argv[]) {
 //        Print(@"localPathUTIs: %@", localPathUTIs);
 //        Print(@"remotePathUTIs: %@", remotePathUTIs);
         
-        NSArray <ElementAction<NSString*>*>* commonUTIs = [localPathUTIs longestCommonSubsequence:remotePathUTIs];
+        NSArray <Patch<NSString*>*>* commonUTIs = [localPathUTIs longestCommonSubsequence:remotePathUTIs];
         
 //        Print(@"%@",  commonUTIs);
         
@@ -76,9 +79,9 @@ int main(int argc, const char * argv[]) {
         
 //        Print(@"availableScripts: %@", availableScripts);
         
-        for (ElementAction<NSString*>*commonUTI in commonUTIs)
+        for (Patch<NSString*>*commonUTI in commonUTIs)
         {
-            if (commonUTI.action == DiffEqual && availableScripts[commonUTI.element]) {
+            if ([commonUTI.left isEqual:commonUTI.right] && availableScripts[commonUTI.left]) {
 //                Print(@"%@ : %@", commonUTI.element, availableScripts[commonUTI.element]);
                 
                 NSMutableArray *arguments = [NSMutableArray new];
@@ -88,27 +91,27 @@ int main(int argc, const char * argv[]) {
                 NSData *standardOutput = nil;
                 NSData *standardError = nil;
                 NSError *error = nil;
-                [NSTask executeTaskWithExecutableURL:[NSURL fileURLWithPath:availableScripts[commonUTI.element]]
+                [NSTask executeTaskWithExecutableURL:[NSURL fileURLWithPath:availableScripts[commonUTI.left]]
                                            arguments:arguments
                                        standardInput:nil
                                       standardOutput:&standardOutput
                                        standardError:&standardError
                                                error:&error];
                 
-//                Print(@"%@", [[NSString alloc] initWithData:standardOutput encoding:NSUTF8StringEncoding]);
-//                Print(@"standardError %@", standardError);
-                
-                
-                NSURL *temporaryURL = [[NSFileManager.defaultManager.temporaryDirectory URLByAppendingPathComponent:[[NSUUID UUID] UUIDString]] URLByAppendingPathExtension:@".bulkhead"];
+                if (shouldLaunchGUI) {
+                    NSURL *temporaryURL = [[NSFileManager.defaultManager.temporaryDirectory URLByAppendingPathComponent:[[NSUUID UUID] UUIDString]] URLByAppendingPathExtension:@".bulkhead"];
 
-                [standardOutput writeToURL:temporaryURL atomically:YES];
+                    [standardOutput writeToURL:temporaryURL atomically:YES];
 
-                [NSTask executeTaskWithExecutableURL:[NSURL fileURLWithPath:@"/usr/bin/open"]
-                                           arguments:@[@"-b", @"com.jjrscott.bulkhead", temporaryURL.path]
-                                       standardInput:standardOutput
-                                      standardOutput:nil
-                                       standardError:nil
-                                               error:&error];
+                    [NSTask executeTaskWithExecutableURL:[NSURL fileURLWithPath:@"/usr/bin/open"]
+                                               arguments:@[@"-b", @"com.jjrscott.bulkhead", temporaryURL.path]
+                                           standardInput:standardOutput
+                                          standardOutput:nil
+                                           standardError:nil
+                                                   error:&error];
+                } else {
+                    Print(@"%@", [[NSString alloc] initWithData:standardOutput encoding:NSUTF8StringEncoding]);
+                }
                 
                 return 0;
             }

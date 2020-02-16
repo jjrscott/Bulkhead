@@ -8,23 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSUInteger, Diff) {
-    DiffEqual,
-    DiffAddition,
-    DiffDeletion,
-};
+@interface Patch<Element> : NSObject;
 
-NSString *NSStringFromDiff(Diff action);
+@property (nonatomic, strong, readonly) Element left;
+@property (nonatomic, strong, readonly) Element right;
 
-@interface ElementAction<Element> : NSObject;
-
-@property (nonatomic, assign, readonly) Diff action;
-@property (nonatomic, strong, readonly) Element element;
++(instancetype)patchWithLeft:(id)left right:(id)right;
 
 @end
 
 @interface NSArray<Element> (LCS)
 
--(NSArray<ElementAction<Element>*>*)longestCommonSubsequence:(NSArray*)anArray;
+-(NSArray<Patch<Element>*>*)longestCommonSubsequence:(NSArray*)anArray;
+-(NSArray<Patch<Element>*>*)longestCommonSubsequence:(NSArray*)anArray isEqual:(BOOL (^)(Element left, Element right))isEqual;
 
 @end
+
